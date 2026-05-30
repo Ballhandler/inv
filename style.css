@@ -301,8 +301,8 @@ p{
 }
 
 .transf img{
-    transform: scale(1.2);
-    margin-top: 30px;
+    transform: scale(1.3);
+    margin-top: 60px;
 }
 
 .transf p{
@@ -316,6 +316,18 @@ p{
 
 .transft p{
     font-size: 25px;
+}
+
+.wish{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;    
+}
+
+.blesc{
+    width: 63px;
+    margin: 0 auto;
 }
 
 .anketat{

@@ -282,12 +282,40 @@ p{
 }
 
 .dressImg{
-    width: 1000px;
-    height: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    column-gap: 100px;
+    row-gap: 30px;
 }
 
 .dressImg img{
-    width: 100%;
+    width: 120px;
+}
+
+.transf{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.transf img{
+    transform: scale(1.2);
+    margin-top: 30px;
+}
+
+.transf p{
+    font-size: 150px;
+}
+
+.transft{
+    width: 800px;
+    margin: 0 auto;
+}
+
+.transft p{
+    font-size: 25px;
 }
 
 .anketat{

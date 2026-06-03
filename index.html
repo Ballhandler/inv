@@ -142,18 +142,19 @@
                 </div>
             </div>
             <div class="vera">
-                <img src="images/рамка.png">
-                <div class="verat">
-                    <p>По всем вопросам обращайтесь к</p>
-                    <p>нашему организатору Вере - она с</p>
-                    <p>радостью поможет вам!</p>
-                    <a class="tg" href="">
-                        <img src="images/ТГ вера.png">
-                    </a>
-                    <a class="tel" href="">
-                        <img src="images/ТЕЛ вера.png">
-                    </a>
-                </div>
+                <img class="ramka" src="images/рамка.png">
+                    <div class="verat">
+                        <p>По всем вопросам обращайтесь к</p>
+                        <p>нашему организатору Вере - она с</p>
+                        <p>радостью поможет вам!</p>
+                        <a class="tg" href="https://t.me/saltwedding">
+                            <img src="images/ТГ вера.png">
+                        </a>
+                        <button type="button" class="tel-btn" onclick="copyPhoneNumber(event)">
+                            <img src="images/ТЕЛ вера.png" style="pointer-events: none;">
+                        </button>
+                        <div id="message" class="message"></div>
+                    </div>
             </div>
             <div class="anketa">
                 <p class="blue">Анкета гостя</p>
@@ -208,12 +209,14 @@
                         </label>
                     </div>
                     <div class="button">
-                        <button class="ok">Отправить</button>
+                        <button class="ok" type="submit"><img src="images/отправить.png"></button>
                     </div>
                 </div>
             </div>
             <div class="end">
-                <p>Ждем вас! С любовью,</p>
+                <p>Ждем вас!</p>
+                <p>С любовью,</p> 
+                <p>Дима и Настя</p>
             </div>
         </div>
         <script src="script.js"></script>

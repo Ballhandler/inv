@@ -1,10 +1,10 @@
-// config.js - замените на свои данные
-const TELEGRAM_BOT_TOKEN = '8531904307:AAGwQ-dsKn8B32fSgPx8YoHrSXKM_COEvw0'; // Токен вашего бота от @BotFather
-const TELEGRAM_CHAT_ID = '468095537'; // Ваш ID чата (можно получить через @userinfobot)
+// ==================== КОНФИГУРАЦИЯ ====================
+const TELEGRAM_BOT_TOKEN = '8531904307:AAGwQ-dsKn8B32fSgPx8YoHrSXKM_COEvw0';
+const TELEGRAM_CHAT_ID = '468095537';
+const PHONE_NUMBER = "+7 (999) 123-45-67";
 
-// Функция отправки данных в Telegram
+// ==================== ФУНКЦИИ ТЕЛЕГРАМ ====================
 async function sendToTelegram(data) {
-    // Формируем красивое сообщение
     let message = `🎉 НОВОЕ ПОДТВЕРЖДЕНИЕ ГОСТЯ\n`;
     message += `━━━━━━━━━━━━━━━━━━━━━━\n`;
     message += `👤 ФИО: ${data.fullName}\n`;
@@ -20,9 +20,7 @@ async function sendToTelegram(data) {
     try {
         const response = await fetch(url, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 chat_id: TELEGRAM_CHAT_ID,
                 text: message,
@@ -34,8 +32,7 @@ async function sendToTelegram(data) {
         
         if (result.ok) {
             alert('✅ Спасибо! Ваша заявка успешно отправлена.');
-            // Опционально: очистить форму после успешной отправки
-            // resetForm();
+            resetForm();
             return true;
         } else {
             console.error('Ошибка Telegram API:', result);
@@ -43,91 +40,70 @@ async function sendToTelegram(data) {
         }
     } catch (error) {
         console.error('Ошибка:', error);
-        alert('❌ Произошла ошибка при отправке. Пожалуйста, попробуйте позже.\n\n' + error.message);
+        alert('❌ Произошла ошибка при отправке. Пожалуйста, попробуйте позже.');
         return false;
     }
 }
 
-// Функция валидации формы
+// ==================== ВАЛИДАЦИЯ ====================
 function validateForm(formData) {
     if (!formData.fullName.trim()) {
-        alert('❌ Пожалуйста, введите ФИ гостя');
+        alert('❌ Пожалуйста, введите Фамилию и Имя гостя');
         return false;
     }
-    
     if (!formData.phone.trim()) {
         alert('❌ Пожалуйста, введите номер телефона');
         return false;
     }
-    
-    // Валидация телефона (минимум 10 цифр)
     const phoneDigits = formData.phone.replace(/\D/g, '');
     if (phoneDigits.length < 10) {
         alert('❌ Пожалуйста, введите корректный номер телефона (минимум 10 цифр)');
         return false;
     }
-    
     if (!formData.mainDish) {
         alert('❌ Пожалуйста, выберите основное блюдо');
         return false;
     }
-    
     if (!formData.transfer) {
         alert('❌ Пожалуйста, укажите, нужен ли трансфер');
         return false;
     }
-    
     return true;
 }
 
-// Функция сбора данных из формы (РАБОТАЕТ С VALUE)
+// ==================== СБОР ДАННЫХ ====================
 function collectFormData() {
-    // Получаем ФИО
     const fullNameInput = document.querySelector('.fi[type="text"]');
-    const fullName = fullNameInput ? fullNameInput.value : '';
-    
-    // Получаем телефон
     const phoneInput = document.querySelector('.fi[type="tel"]');
-    const phone = phoneInput ? phoneInput.value : '';
-    
-    // Получаем присутствие (значение из select)
     const presenceSelect = document.querySelector('.presence');
-    const presence = presenceSelect ? presenceSelect.value : '';
     
-    // Получаем выбранное блюдо (используем value)
     let mainDish = '';
     const selectedDish = document.querySelector('input[name="choice"]:checked');
     if (selectedDish) {
         mainDish = selectedDish.value === 'птица' ? 'Птица' : 
-                    selectedDish.value === 'мясо' ? 'Мясо' : 
-                    selectedDish.value === 'рыба' ? 'Рыба' : selectedDish.value;
+                   selectedDish.value === 'мясо' ? 'Мясо' : 
+                   selectedDish.value === 'рыба' ? 'Рыба' : selectedDish.value;
     }
     
-    // Получаем выбор трансфера (используем value)
     let transfer = '';
     const selectedTransfer = document.querySelector('input[name="transf"]:checked');
     if (selectedTransfer) {
-        transfer = selectedTransfer.value === 'да' ? 'Да' : 
-                   selectedTransfer.value === 'нет' ? 'Нет' : selectedTransfer.value;
+        transfer = selectedTransfer.value === 'да' ? 'Да' : 'Нет';
     }
     
-    // Логируем для отладки
-    console.log('Собранные данные:', { fullName, phone, presence, mainDish, transfer });
-    
     return {
-        fullName,
-        phone,
-        presence,
-        mainDish,
-        transfer
+        fullName: fullNameInput ? fullNameInput.value : '',
+        phone: phoneInput ? phoneInput.value : '',
+        presence: presenceSelect ? presenceSelect.value : '',
+        mainDish: mainDish,
+        transfer: transfer
     };
 }
 
-// Обработчик отправки формы
+// ==================== ОТПРАВКА ФОРМЫ ====================
 async function handleSubmit(event) {
     event.preventDefault();
     
-    // Блокируем кнопку на время отправки
     const submitBtn = document.querySelector('.ok');
     const originalText = submitBtn.textContent;
     submitBtn.disabled = true;
@@ -135,57 +111,90 @@ async function handleSubmit(event) {
     
     try {
         const formData = collectFormData();
-        
         if (validateForm(formData)) {
             await sendToTelegram(formData);
         }
     } catch (error) {
-        console.error('Ошибка при отправке:', error);
-        alert('❌ Произошла ошибка. Пожалуйста, попробуйте еще раз.');
+        console.error('Ошибка:', error);
+        alert('❌ Произошла ошибка. Попробуйте еще раз.');
     } finally {
-        // Разблокируем кнопку
         submitBtn.disabled = false;
         submitBtn.textContent = originalText;
     }
 }
 
-// Опциональная функция очистки формы
+// ==================== ОЧИСТКА ФОРМЫ ====================
 function resetForm() {
-    // Очищаем текстовые поля
     const fullNameInput = document.querySelector('.fi[type="text"]');
     const phoneInput = document.querySelector('.fi[type="tel"]');
     if (fullNameInput) fullNameInput.value = '';
     if (phoneInput) phoneInput.value = '';
     
-    // Сбрасываем select на первый вариант
     const presenceSelect = document.querySelector('.presence');
     if (presenceSelect) presenceSelect.selectedIndex = 0;
     
-    // Снимаем выделение со всех radio
     const allRadios = document.querySelectorAll('input[type="radio"]');
-    allRadios.forEach(radio => {
-        radio.checked = false;
-    });
-    
-    console.log('Форма очищена');
+    allRadios.forEach(radio => radio.checked = false);
 }
 
-// Инициализация при загрузке страницы
+// ==================== КОПИРОВАНИЕ НОМЕРА ====================
+function copyPhoneNumber(event) {
+    if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+    }
+    
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(PHONE_NUMBER).then(() => {
+            showMessage('Номер скопирован! ✓', 'success');
+        }).catch(() => {
+            fallbackCopy(PHONE_NUMBER);
+        });
+    } else {
+        fallbackCopy(PHONE_NUMBER);
+    }
+    
+    return false;
+}
+
+function fallbackCopy(text) {
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    textarea.style.position = 'fixed';
+    textarea.style.top = '-9999px';
+    textarea.style.left = '-9999px';
+    document.body.appendChild(textarea);
+    textarea.select();
+    
+    try {
+        document.execCommand('copy');
+        showMessage('Номер скопирован! ✓', 'success');
+    } catch (err) {
+        showMessage('Не удалось скопировать', 'error');
+    }
+    document.body.removeChild(textarea);
+}
+
+function showMessage(msg, type) {
+    const messageDiv = document.getElementById('message');
+    messageDiv.textContent = msg;
+    messageDiv.className = `message ${type}`;
+    setTimeout(() => {
+        messageDiv.className = 'message';
+    }, 3000);
+}
+
+// ==================== ИНИЦИАЛИЗАЦИЯ ====================
 document.addEventListener('DOMContentLoaded', () => {
-    const submitButton = document.querySelector('.ok');
-    if (submitButton) {
-        submitButton.addEventListener('click', handleSubmit);
+    const form = document.getElementById('mainForm');
+    if (form) {
+        form.addEventListener('submit', handleSubmit);
+    }
+    
+    const copyBtn = document.getElementById('copyPhoneBtn');
+    if (copyBtn) {
+        copyBtn.addEventListener('click', copyPhoneNumber);
     }
     
     console.log('✅ Анкета загружена и готова к работе');
-    console.log('💡 Для тестирования Telegram бота введите в консоли: testTelegramConnection()');
 });
-
-window.resetForm = resetForm;
-window.collectFormData = collectFormData;
-
-console.log('🎉 Скрипт анкеты загружен!');
-console.log('📝 Для проверки работоспособности используйте:');
-console.log('   - testTelegramConnection() - проверить связь с Telegram');
-console.log('   - collectFormData() - посмотреть текущие данные формы');
-console.log('   - resetForm() - очистить форму');

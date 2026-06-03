@@ -427,6 +427,7 @@ p{
 
 .anketat p{
     font-size: 25px;
+    color: #2f2e2fe0;
 }
 
 .test{
@@ -437,11 +438,17 @@ p{
 
 .test h2{
     margin-left: 10px;
-    font-family: "MyCustomFont2", "Arial";   
+    font-family: "MyCustomFont2", "Arial";
+    color: #2f2e2fe0;
 }
 
 .test h3{
-    font-family: "MyCustomFont2", "Arial";   
+    font-family: "MyCustomFont2", "Arial";
+    color: #2f2e2fe0; 
+}
+
+label{
+    color: #2f2e2fe0;
 }
 
 .fi{
@@ -469,6 +476,7 @@ p{
     margin-top: 5px;
     margin-bottom: 30px;
     padding-left: 10px;
+    color: #2f2e2fe0;
 }
 
 
@@ -476,6 +484,7 @@ option{
     font-family: "MyCustomFont2", "Arial", sans-serif; 
     font-weight: 100;
     font-size: 20px;
+    color: #2f2e2fe0;
 }
 
 .custom-radio {
@@ -543,6 +552,10 @@ option{
     margin: 0 auto;
     margin-top: 50px;
     margin-bottom: 50px;
+}
+
+.end p{
+    color: #2f2e2fe0;
 }
 
 

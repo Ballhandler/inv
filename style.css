@@ -582,9 +582,13 @@ option{
         scale: 1.5;
     }
 
+    .map{
+        margin-top: 120px;
+    }
+
     .map p{
         margin-top: -60px;
-        font-size: 80px;
+        font-size: 50px;
     }
 
     .timeimg{
@@ -599,10 +603,11 @@ option{
         width: 80px;
         height: auto;
         margin-right: 20px;
+        margin-top: -10px;
     }
 
     .line2{
-        margin-left: -200px;
+        margin-left: -80px;
     }
 
     .line3{
@@ -620,16 +625,16 @@ option{
     }
 
     .line5,.line6{
-        margin-top: 30px;
+        margin-top: 20px;
         width: 80px;
         height: auto;
     }
     .line5{
-        margin-left: -80px;
+        margin-left: -40px;
         width: 60px;
     }
     .line6{
-        margin-left: -200px;
+        margin-left: -120px;
     }
 
 
@@ -642,7 +647,7 @@ option{
     }
 
     .timeline p{
-        font-size: 20px;
+        font-size: 15px;
     }
     .timeline h1{
         font-size: 20px;
@@ -655,8 +660,8 @@ option{
     .time1{
         grid-column: 1 / 2;
         grid-row: 2 / 6;
-        margin-top: -140px;
-        margin-right: 30px;
+        margin-top: -150px;
+        margin-right: 10px;
     }
     .t2{
         grid-column: 2 / 2;
@@ -667,7 +672,7 @@ option{
         grid-column: 2 / 2;
         grid-row: 2 / 6;
         margin-top: -140px;
-        margin-right: 100px;        
+        margin-right: 50px;        
     }
     .t3{
         grid-column: 1 / 2;
@@ -677,50 +682,52 @@ option{
     .time3{
         grid-column: 1 / 2;
         grid-row: 4 / 6;
-        margin-top: -100px;
-        margin-left: 150px;
+        margin-top: -150px;
+        margin-left: 100px;
     }
     .t4{
         grid-column: 2 / 2;
         grid-row: 3 / 6;
-        margin-left: 80px;
+        margin-left: 30px;
+        margin-top: -15px;
     }
     .time4{
         grid-column: 2 / 2;
         grid-row: 4 / 6;
-        margin-top: -140px;
+        margin-top: -150px;
         margin-right: 0px;
-        margin-left: 100px;
+        margin-left: 50px;
     }
     .t5{
         grid-column: 1 / 2;
         grid-row: 5 / 6;
-        margin-right: 30px;
+        margin-right: 60px;
+        margin-top: -15px;
     }
     .time5{
         grid-column: 1 / 2;
         grid-row: 6 / 6;
-        margin-top: -390px;
-        margin-right: 30px;
+        margin-top: -380px;
+        margin-right: 20px;
     }
     .t6{
         grid-column: 2 / 2;
         grid-row: 5 / 6;
-        margin-right: 100px;
+        margin-right: 60px;
     }
     .time6{
         grid-column: 2 / 2;
         grid-row: 6 / 6;
         margin-top: -370px;
-        margin-right: 150px;
+        margin-right: 120px;
     }
 
     .time{
-    margin-top: 60px;
+    margin-top: 50px;
     }
 
     .time p{
-        font-size:80px;
+        font-size:50px;
     }
 
     .month img{
@@ -731,11 +738,11 @@ option{
     }
 
     .month p{
-        font-size: 70px;
+        font-size: 50px;
     }
 
     .date{
-        margin-top: 30px;
+        margin-top: 50px;
     }
 
     .date p {
@@ -778,16 +785,15 @@ option{
     }
 
     .pink{
-        font-size: 60px;
+        font-size: 50px;
     }
 
     .blue{
-        font-size: 60px;
+        font-size: 50px;
     }
 
     .name{
         margin-top: 20px;
-        margin-bottom: 100px;
     }
 
     .fon{
@@ -801,13 +807,18 @@ option{
     }
 
     .dress{
-        margin-top: 30px;
+        margin-top: 50px;
+    }
+
+    .dress p{
+        font-size: 50px;
     }
     
     .dresst{
         width: 350px;
         margin: 0;
-        margin-bottom: 15px;
+        margin-bottom: 20px;
+        margin-top: 15px;
     }
     .dresst p{
         font-size: 15px;
@@ -827,6 +838,18 @@ option{
         margin: 0 auto;
     }
 
+    .wish p{
+        font-size: 50px;
+    }
+
+    .anketa{
+        margin-top: 100px;
+    }
+
+    .anketa p{
+        font-size: 50px;
+    }
+
     .anketat{
         width: 350px;
     }
@@ -835,13 +858,17 @@ option{
         font-size: 15px;
     }
 
+    .transf{
+        margin-top: 50px;
+    }
+
     .transf img{
         width: 250px;;
         margin-top: 20px;
     }
 
     .transf p{
-        font-size: 60px;
+        font-size: 50px;
     }
 
     .transft{
@@ -865,7 +892,8 @@ option{
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin: 0 auto;    
+        margin: 0 auto;
+        margin-top: 50px;    
     }
 
     .chat p{
@@ -930,6 +958,10 @@ option{
     .button img{
         width: 150px;
         height: auto;
+    }
+
+    .end p{
+        font-size: 20px;
     }
 
 }

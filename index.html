@@ -164,54 +164,56 @@
                          подтвердить свое присутствие до 01.06.2025.
                     </p>
                 </div>
-                <div class="test">
-                    <h2>Фамилия Имя гостя:</h2>
-                    <input class="fi" type="text">
-                    <h3>Номер телефона</h3>
-                    <input class="fi" type="tel">
-                    <h3>Подтвердить присутствие</h3>
-                    <select class="presence">
-                        <option>обязательно приду</option>
-                        <option>не смогу присутствовать</option>
-                    </select>
-                    <h3>Предпочитаемое основное блюдо:</h3>
-                    <div class="choice">
-                        <label class="custom-radio">
-                            <input type="radio" name="choice" value="птица">
-                            <span class="square"></span>
-                            Птица
-                        </label>
+                <form id="mainForm">
+                    <div class="test">
+                        <h2>Фамилия Имя гостя:</h2>
+                        <input class="fi" type="text">
+                        <h3>Номер телефона</h3>
+                        <input class="fi" type="tel">
+                        <h3>Подтвердить присутствие</h3>
+                        <select class="presence">
+                            <option>обязательно приду</option>
+                            <option>не смогу присутствовать</option>
+                        </select>
+                        <h3>Предпочитаемое основное блюдо:</h3>
+                        <div class="choice">
+                            <label class="custom-radio">
+                                <input type="radio" name="choice" value="птица">
+                                <span class="square"></span>
+                                Птица
+                            </label>
 
-                        <label class="custom-radio">
-                            <input type="radio" name="choice" value="мясо">
-                            <span class="square"></span>
-                            Мясо
-                        </label>
+                            <label class="custom-radio">
+                                <input type="radio" name="choice" value="мясо">
+                                <span class="square"></span>
+                                Мясо
+                            </label>
 
-                        <label class="custom-radio">
-                            <input type="radio" name="choice" value="рыба">
-                            <span class="square"></span>
-                            Рыба
-                        </label>
-                    </div>
-                    <h3>Нужен ли трансфер?</h3>
-                    <div>
-                        <label class="custom-radio">
-                            <input type="radio" name="transf" value="да">
-                            <span class="square"></span>
-                            Да
-                        </label>
+                            <label class="custom-radio">
+                                <input type="radio" name="choice" value="рыба">
+                                <span class="square"></span>
+                                Рыба
+                            </label>
+                        </div>
+                        <h3>Нужен ли трансфер?</h3>
+                        <div>
+                            <label class="custom-radio">
+                                <input type="radio" name="transf" value="да">
+                                <span class="square"></span>
+                                Да
+                            </label>
 
-                        <label class="custom-radio">
-                            <input type="radio" name="transf" value="нет">
-                            <span class="square"></span>
-                            Нет
-                        </label>
+                            <label class="custom-radio">
+                                <input type="radio" name="transf" value="нет">
+                                <span class="square"></span>
+                                Нет
+                            </label>
+                        </div>
+                        <div class="button">
+                            <button class="ok" type="submit"><img src="images/отправить.png"></button>
+                        </div>
                     </div>
-                    <div class="button">
-                        <button class="ok" type="submit"><img src="images/отправить.png"></button>
-                    </div>
-                </div>
+                </form>
             </div>
             <div class="end">
                 <p>Ждем вас!</p>

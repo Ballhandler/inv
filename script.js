@@ -105,9 +105,8 @@ async function handleSubmit(event) {
     event.preventDefault();
     
     const submitBtn = document.querySelector('.ok');
-    const originalText = submitBtn.textContent;
+    // ⚠️ НЕ меняем текст кнопки, только блокируем
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Отправка...';
     
     try {
         const formData = collectFormData();
@@ -118,8 +117,8 @@ async function handleSubmit(event) {
         console.error('Ошибка:', error);
         alert('❌ Произошла ошибка. Попробуйте еще раз.');
     } finally {
+        // ✅ Разблокируем кнопку, текст остался прежним
         submitBtn.disabled = false;
-        submitBtn.textContent = originalText;
     }
 }
 

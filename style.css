@@ -310,7 +310,7 @@ p{
 }
 
 .transft{
-    width: 800px;
+    width: 600px;
     margin: 0 auto;
 }
 
@@ -325,6 +325,10 @@ p{
     margin: 0 auto;    
 }
 
+.wisht{
+    width: 600px;
+}
+
 .blesc{
     width: 63px;
     margin: 0 auto;
@@ -335,6 +339,14 @@ p{
     flex-direction: column;
     align-items: center;
     margin: 0 auto;    
+}
+
+.chatt{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    width: 600px;
 }
 
 .chat a{
@@ -506,7 +518,7 @@ option{
 
     .ymap{
         width: 300px;
-        height: 290px;
+        height: 200px;
     }
 
     .img2{
@@ -747,14 +759,24 @@ option{
     .dresst{
         width: 350px;
         margin: 0;
+        margin-bottom: 15px;
     }
     .dresst p{
         font-size: 15px;
     }
 
     .dressImg{
-        width: 400px;
-        height: auto;
+        display: grid;
+        width: 360px;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        column-gap: 0px;
+        row-gap: 30px;
+    }
+
+    .dressImg img{
+        width: 90px;
+        margin: 0 auto;
     }
 
     .anketat{
@@ -763,6 +785,64 @@ option{
 
     .anketat p{
         font-size: 15px;
+    }
+
+    .transf img{
+        width: 250px;;
+        margin-top: 20px;
+    }
+
+    .transf p{
+        font-size: 60px;
+    }
+
+    .transft{
+        width: 350px;
+        margin: 0 auto;
+    }
+
+    .transft p{
+        font-size: 15px;
+    }
+
+    .wisht{
+        width: 350px;
+    }
+
+    .wisht p{
+        font-size: 15px;
+    }
+
+    .chat{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 auto;    
+    }
+
+    .chat p{
+        font-size: 50px;
+    }
+
+    .chatt{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 auto;
+        width: 350px;
+    }
+
+    .chatt p{
+        font-size: 15px;
+    }
+
+    .chat a{
+        margin-top: 30px;
+    }
+
+    .chat img{
+        width: 150px;
+        height: auto;
     }
 
 }

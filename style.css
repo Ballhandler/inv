@@ -859,6 +859,18 @@ option{
         font-size: 15px;
     }
 
+    .test h3{
+        font-size: 15px;
+    }
+
+    .presence{
+        font-size: 15px;
+    }
+
+    .custom-radio {
+        font-size: 15px;
+    }
+
     .transf{
         margin-top: 50px;
     }
@@ -955,6 +967,10 @@ option{
 
     .tg{
         margin-top: 20px;
+    }
+
+    .button{
+        margin-top: -50px;
     }
 
     .button img{

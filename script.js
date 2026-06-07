@@ -15,30 +15,30 @@ async function sendToTelegram(data) {
     message += `━━━━━━━━━━━━━━━━━━━━━━\n`;
     message += `📅 ${new Date().toLocaleString('ru-RU')}`;
 
-    const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-    const telegramUrl = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
-    const url = proxyUrl + telegramUrl;
+    const url = `https://script.google.com/macros/s/AKfycbz0ehmeVn2UzP2KCPrc1I6AHHDvrWlHcBC54ueDrFLRU0g_hOQDwsGz504NrRcnfvY/exec`;
     
     try {
         const response = await fetch(url, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                chat_id: TELEGRAM_CHAT_ID,
-                text: message,
-                parse_mode: 'HTML'
+            headers: { 
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+                botToken: TELEGRAM_BOT_TOKEN,
+                chatId: TELEGRAM_CHAT_ID,
+                text: message
             })
         });
         
         const result = await response.json();
         
-        if (result.ok) {
+        if (result.status === 'ok') {
             alert('✅ Спасибо! Ваша заявка успешно отправлена.');
             resetForm();
             return true;
         } else {
-            console.error('Ошибка Telegram API:', result);
-            throw new Error(result.description || 'Ошибка отправки');
+            console.error('Ошибка:', result);
+            throw new Error(result.message || 'Ошибка отправки');
         }
     } catch (error) {
         console.error('Ошибка:', error);

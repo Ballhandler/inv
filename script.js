@@ -15,7 +15,9 @@ async function sendToTelegram(data) {
     message += `━━━━━━━━━━━━━━━━━━━━━━\n`;
     message += `📅 ${new Date().toLocaleString('ru-RU')}`;
 
-    const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+    const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+    const telegramUrl = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+    const url = proxyUrl + telegramUrl;
     
     try {
         const response = await fetch(url, {
